@@ -1,7 +1,9 @@
 #!/usr/bin/python
-from sklearn.naive_bayes import GaussianNB
 from tools.email_preprocess import preprocess
+from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score
+from time import time
+
 """ 
     This is the code to accompany the Lesson 1 (Naive Bayes) mini-project. 
 
@@ -12,8 +14,6 @@ from sklearn.metrics import accuracy_score
     Chris has label 1
 """
 
-import sys
-from time import time
 
 # sys.path.append("../tools/")
 
