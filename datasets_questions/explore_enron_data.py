@@ -22,8 +22,8 @@ from tools.feature_format import featureFormat, targetFeatureSplit
 
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "rb"))
 df = pd.DataFrame.from_dict(data=enron_data, orient='index')
-# df.replace('NaN', 0)
-# df_np = df.to_numpy()
+df.replace('NaN', 0)
+df_np = df.to_numpy()
 # number of POI's in dataset
 poi_num = sum([v["poi"] for c, v in enron_data.items() if v["poi"] == 1])
 

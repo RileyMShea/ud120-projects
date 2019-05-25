@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
-""" 
+"""
+    feature_format
+    --------------
     A general tool for converting data from the
     dictionary format to an (n x k) python list that's 
     ready for training an sklearn algorithm
@@ -33,20 +35,33 @@
 import numpy as np
 
 
-def featureFormat(dictionary, features, remove_NaN=True, remove_all_zeroes=True, remove_any_zeroes=False,
+def featureFormat(dictionary,
+                  features,
+                  remove_NaN=True,
+                  remove_all_zeroes=True,
+                  remove_any_zeroes=False,
                   sort_keys=False):
     """ convert dictionary to numpy array of features
-        remove_NaN = True will convert "NaN" string to 0.0
-        remove_all_zeroes = True will omit any data points for which
-            all the features you seek are 0.0
-        remove_any_zeroes = True will omit any data points for which
-            any of the features you seek are 0.0
-        sort_keys = True sorts keys by alphabetical order. Setting the value as
-            a string opens the corresponding pickle file with a preset key
-            order (this is used for Python 3 compatibility, and sort_keys
-            should be left as False for the course mini-projects).
+
+        Parameters:
+        -----------
+        remove_NaN : Bool, default True
+            Convert "NaN" string to 0.0
+        remove_all_zeroes : bool, default True
+            Omit any data points for which all the features you seek are 0.0
+        remove_any_zeroes : bool, default True
+            Omit any data points for which any of the features you seek are 0.0
+        sort_keys : bool, default True
+            Sorts keys by alphabetical order. Setting the value as a string opens the corresponding pickle file with
+            a preset key order (this is used for Python 3 compatibility, and sort_keys should be left as False for
+            the course mini-projects).
         NOTE: first feature is assumed to be 'poi' and is not checked for
             removal for zero or missing values.
+
+        Returns
+        -----------
+        np.array
+            converted from 'dictionary' param
     """
 
     return_list = []
@@ -70,6 +85,7 @@ def featureFormat(dictionary, features, remove_NaN=True, remove_all_zeroes=True,
                 print("error: key ", feature, " not present")
                 return
             value = dictionary[key][feature]
+            # replace 'NaN' strings with 0
             if value == "NaN" and remove_NaN:
                 value = 0
             tmp_list.append(float(value))
