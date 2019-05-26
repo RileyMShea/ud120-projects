@@ -3,9 +3,10 @@
 from nltk.stem.snowball import SnowballStemmer
 import string
 import re
+from io import TextIOWrapper
 
 
-def parseOutText(f):
+def parseOutText(f: TextIOWrapper) -> str:
     """ given an opened email file f, parse out all text below the
         metadata block at the top
         (in Part 2, you will also add stemming capabilities)
@@ -36,7 +37,6 @@ def parseOutText(f):
         # space between each stemmed word)
         stemmer = SnowballStemmer("english")
         words = ' '.join(stemmer.stem(x) for x in text_string.split())
-
 
     return words
 
