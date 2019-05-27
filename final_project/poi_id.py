@@ -20,9 +20,36 @@ features_list = ['poi', 'salary']  # You will need to use more features
 with open("final_project_dataset.pkl", "rb") as data_file:
     data_dict = pickle.load(data_file)
 
-# Nested dictionary comprehension to change 'NaN' strings to numpy.nan objects
-td = {outer_k: {(np.nan if inner_v == 'NaN' else inner_v) for (inner_k, inner_v) in outer_v.items()} for
-      (outer_k, outer_v) in data_dict.items()}
+# Finance features in dataset, should be type Int
+financial_features = ['salary', 'deferral_payments',
+                      'total_payments', 'loan_advances', 'bonus', 'restricted_stock_deferred',
+                      'deferred_income', 'total_stock_value', 'expenses', 'exercised_stock_options',
+                      'other', 'long_term_incentive', 'restricted_stock', 'director_fees']
+
+# email_address itself ommitted here for cleaning
+email_features = ['to_messages', 'from_poi_to_this_person',
+                  'from_messages', 'from_this_person_to_poi', 'shared_receipt_with_poi']
+
+int_cols = email_features + financial_features
+# binary value to denote whether person is known person of interest
+
+poi_label = ['poi']
+df = pd.DataFrame.from_dict(data_dict, orient='index')
+
+# fix 'Nan' String
+# df = df.replace('NaN', np.nan)
+# fix columns from float to int64
+for c in int_cols:
+    df[c] = pd.to_numeric(df[c], errors='coerce')
+    #df[c] = df[c].astype('Int64')
+# df[int_cols] = df[int_cols].apply(pd.to_numeric, (errors='coerce', downcast='integer'))
+# for col_name in int_cols:
+#     ser = df[[col_name]]
+#     pd.to_numeric(df[[col_name]], downcast='integer', errors='coerce')
+# the 'TOTAL' record
+TOTAL = df.sort_values(by=['salary'], ascending=False, na_position='last').head(1)
+#
+df.drop(index='TOTAL', inplace=True)
 
 # TODO: Task 2.0: Identify outliers
 

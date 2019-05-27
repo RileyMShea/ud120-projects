@@ -48,7 +48,7 @@ You do not need to process the e-mail corpus in order to complete the project
 
 Enron Email and finance data in a dictionary.  Each k, v is a person
 
-financial features: ['salary', 'deferral_payments',
+financial features = ['salary', 'deferral_payments',
 'total_payments', 'loan_advances', 'bonus', 'restricted_stock_deferred',
 'deferred_income', 'total_stock_value', 'expenses', 'exercised_stock_options',
 'other', 'long_term_incentive', 'restricted_stock', 'director_fees'] 
