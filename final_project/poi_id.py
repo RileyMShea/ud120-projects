@@ -12,7 +12,7 @@ from final_project.tester import dump_classifier_and_data
 features_list = ['poi', 'salary']  # You will need to use more features
 
 # Load the dictionary containing the dataset
-with open("final_project_dataset.pkl", "r") as data_file:
+with open("final_project_dataset.pkl", "rb") as data_file:
     data_dict = pickle.load(data_file)
 
 # Task 2: Remove outliers
