@@ -1,6 +1,7 @@
 #!/usr/bin/python
 from numpy import float64
 
+
 def outlierCleaner(predictions: list,
                    ages: list,
                    net_worths: float64) -> list:

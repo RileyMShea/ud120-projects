@@ -1,4 +1,9 @@
 #!/usr/bin/pickle
+import pickle
+from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.naive_bayes import GaussianNB
+from sklearn.model_selection import train_test_split
+from tools.feature_format import featureFormat, targetFeatureSplit
 
 """ a basic script for importing student's POI identifier,
     and checking the results that they get from it 
@@ -9,10 +14,6 @@
 
     that process should happen at the end of poi_id.py
 """
-
-import pickle
-from sklearn.model_selection import StratifiedShuffleSplit
-from tools.feature_format import featureFormat, targetFeatureSplit
 
 PERF_FORMAT_STRING = "\
 \tAccuracy: {:>0.{display_precision}f}\tPrecision: {:>0.{display_precision}f}\t\
@@ -84,7 +85,26 @@ DATASET_PICKLE_FILENAME = "my_dataset.pkl"
 FEATURE_LIST_FILENAME = "my_feature_list.pkl"
 
 
-def dump_classifier_and_data(clf, dataset, feature_list):
+def dump_classifier_and_data(clf: GaussianNB, dataset: dict, feature_list: list):
+    """
+    Dumps my classifier, dataset, and features_list to pickle files.
+
+    This allows anyone to check my results
+
+    Parameters
+    ----------
+    clf: GaussianNB
+        the classifier object I used
+    dataset: dict
+        my dataset, after removing outliers
+    feature_list: list
+        the set of features I used as a list of strings.
+
+    Returns
+    -------
+    None
+    """
+
     with open(CLF_PICKLE_FILENAME, "wb") as clf_outfile:
         pickle.dump(clf, clf_outfile)
     with open(DATASET_PICKLE_FILENAME, "wb") as dataset_outfile:
