@@ -46,6 +46,7 @@ for c in int_cols:
 # for col_name in int_cols:
 #     ser = df[[col_name]]
 #     pd.to_numeric(df[[col_name]], downcast='integer', errors='coerce')
+
 # the 'TOTAL' record
 TOTAL = df.sort_values(by=['salary'], ascending=False, na_position='last').head(1)
 #
