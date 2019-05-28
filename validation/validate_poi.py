@@ -7,7 +7,7 @@ from sklearn import tree
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 # local package imports
-from tools.feature_format import featureFormat, targetFeatureSplit
+from tools.feature_format import feature_format, targetFeatureSplit
 
 
 """
@@ -26,7 +26,7 @@ data_dict = pickle.load(open("../final_project/final_project_dataset.pkl", "rb")
 # have a different feature list when you do the final project.
 features_list = ["poi", "salary"]
 
-data = featureFormat(data_dict, features_list, sort_keys='../tools/python2_lesson13_keys.pkl')
+data = feature_format(data_dict, features_list, sort_keys='../tools/python2_lesson13_keys.pkl')
 labels, features = targetFeatureSplit(data)
 
 features_train, features_test, labels_train, labels_test = train_test_split(features, labels,

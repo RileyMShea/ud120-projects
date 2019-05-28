@@ -7,8 +7,8 @@
     dictionary format to an (n x k) python list that's 
     ready for training an sklearn algorithm
 
-    n--no. of key-value pairs in dictionary
-    k--no. of features being extracted
+    n: count of k,v pairs in dict.items()
+    k: count of features being extracted
 
     dictionary keys are names of persons in dataset
     dictionary values are dictionaries, where each
@@ -24,28 +24,27 @@
     salary and bonus, here's what you would do:
 
     feature_list = ["poi", "salary", "bonus"] 
-    data_array = featureFormat( data_dictionary, feature_list )
+    data_array = feature_format( data_dictionary, feature_list )
     label, features = targetFeatureSplit(data_array)
 
     the line above (targetFeatureSplit) assumes that the
     label is the _first_ item in feature_list--very important
     that poi is listed first!
 """
-
 import numpy as np
 
 
-def featureFormat(dictionary,
-                  features,
-                  remove_NaN=True,
-                  remove_all_zeroes=True,
-                  remove_any_zeroes=False,
-                  sort_keys=False):
+def feature_format(dictionary,
+                   features,
+                   remove_nan=True,
+                   remove_all_zeroes=True,
+                   remove_any_zeroes=False,
+                   sort_keys=False):
     """ convert dictionary to numpy array of features
 
         Parameters:
         -----------
-        remove_NaN : Bool, default True
+        remove_nan : Bool, default True
             Convert "NaN" string to 0.0
         remove_all_zeroes : bool, default True
             Omit any data points for which all the features you seek are 0.0
@@ -86,7 +85,7 @@ def featureFormat(dictionary,
                 return
             value = dictionary[key][feature]
             # replace 'NaN' strings with 0
-            if value == "NaN" and remove_NaN:
+            if value == "NaN" and remove_nan:
                 value = 0
             tmp_list.append(float(value))
 
@@ -121,7 +120,7 @@ def featureFormat(dictionary,
 def targetFeatureSplit(data):
     """ 
         given a numpy array like the one returned from
-        featureFormat, separate out the first feature
+        feature_format, separate out the first feature
         and put it into its own list (this should be the 
         quantity you want to predict)
 

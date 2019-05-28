@@ -3,7 +3,7 @@ import pickle
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
-from tools.feature_format import featureFormat, targetFeatureSplit
+from tools.feature_format import feature_format, targetFeatureSplit
 """
     Starter code for the regression mini-project.
     
@@ -22,8 +22,8 @@ dictionary = pickle.load(open("../final_project/final_project_dataset_modified.p
 # list the features you want to look at--first item in the
 # list will be the "target" feature
 features_list = ["bonus", "salary"]
-data = featureFormat(dictionary, features_list, remove_any_zeroes=True,
-                     sort_keys='../tools/python2_lesson06_keys.pkl')
+data = feature_format(dictionary, features_list, remove_any_zeroes=True,
+                      sort_keys='../tools/python2_lesson06_keys.pkl')
 # see https://classroom.udacity.com/courses/ud120/lessons/2301748537/concepts/30416086000923
 target, features = targetFeatureSplit(data)
 

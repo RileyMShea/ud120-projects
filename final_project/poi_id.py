@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split
 # Local Imports
-from tools.feature_format import featureFormat, targetFeatureSplit
+from tools.feature_format import feature_format, targetFeatureSplit
 from final_project.tester import dump_classifier_and_data
 
 # Task 1: Select what features you'll use.
@@ -61,7 +61,7 @@ df.drop(index='TOTAL', inplace=True)
 my_dataset = data_dict
 
 # Extract features and labels from dataset for local testing
-data = featureFormat(my_dataset, features_list, sort_keys=True)
+data = feature_format(my_dataset, features_list, sort_keys=True)
 labels, features = targetFeatureSplit(data)
 
 # TODO: Task 4: Try a variety of classifiers

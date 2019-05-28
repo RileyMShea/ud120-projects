@@ -17,7 +17,7 @@
 import numpy as np
 import pandas as pd
 import pickle
-from tools.feature_format import featureFormat, targetFeatureSplit
+from tools.feature_format import feature_format, targetFeatureSplit
 
 
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "rb"))

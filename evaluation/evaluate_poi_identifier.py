@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import recall_score, precision_score
 # local package imports
-from tools.feature_format import featureFormat, targetFeatureSplit
+from tools.feature_format import feature_format, targetFeatureSplit
 
 """
     Starter code for the evaluation mini-project.
@@ -25,7 +25,7 @@ data_dict = pickle.load(open("../final_project/final_project_dataset.pkl", "rb")
 # TODO: add more features to features_list!
 features_list = ["poi", "salary"]
 
-data = featureFormat(data_dict, features_list, sort_keys='../tools/python2_lesson14_keys.pkl')
+data = feature_format(data_dict, features_list, sort_keys='../tools/python2_lesson14_keys.pkl')
 labels, features = targetFeatureSplit(data)
 
 # TODO: your code goes here

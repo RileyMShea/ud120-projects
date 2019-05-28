@@ -3,7 +3,7 @@ import pickle
 from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split
-from tools.feature_format import featureFormat, targetFeatureSplit
+from tools.feature_format import feature_format, targetFeatureSplit
 
 """ a basic script for importing student's POI identifier,
     and checking the results that they get from it 
@@ -23,7 +23,7 @@ RESULTS_FORMAT_STRING = "\tTotal predictions: {:4d}\tTrue positives: {:4d}\tFals
 
 
 def test_classifier(clf, dataset, feature_list, folds=1000):
-    data = featureFormat(dataset, feature_list, sort_keys=True)
+    data = feature_format(dataset, feature_list, sort_keys=True)
     labels, features = targetFeatureSplit(data)
     cv = StratifiedShuffleSplit(labels, folds, random_state=42)
     true_negatives = 0
