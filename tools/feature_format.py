@@ -34,7 +34,7 @@
 import numpy as np
 
 
-def feature_format(dictionary,
+def feature_format(dictionary: dict,
                    features,
                    remove_nan=True,
                    remove_all_zeroes=True,
@@ -67,7 +67,10 @@ def feature_format(dictionary,
 
     # Key order - first branch is for Python 3 compatibility on mini-projects,
     # second branch is for compatibility on final project.
-    if isinstance(sort_keys, str):
+
+    # if the sorts keys are an instance of str, ie
+    if isinstance(object=sort_keys,
+                  classinfo=str):
         import pickle
         keys = pickle.load(open(sort_keys, "rb"))
     elif sort_keys:
