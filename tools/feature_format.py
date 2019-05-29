@@ -35,7 +35,7 @@ import numpy as np
 
 
 def feature_format(dictionary: dict,
-                   features,
+                   features: list,
                    remove_nan=True,
                    remove_all_zeroes=True,
                    remove_any_zeroes=False,
@@ -44,8 +44,18 @@ def feature_format(dictionary: dict,
 
         Parameters:
         -----------
+        dictionary : dict
+            dictionary.keys() : str
+                Names of people in data set
+            dictionary.values() : dict
+                A nested dictionary for each person
+                key: Feature
+                value: Value for Feature
+        features: list
+            A list of features as strings.  These are the features that will be returned in the numpy array.
         remove_nan : Bool, default True
             Convert "NaN" string to 0.0
+            To properly format all
         remove_all_zeroes : bool, default True
             Omit any data points for which all the features you seek are 0.0
         remove_any_zeroes : bool, default True
@@ -69,7 +79,7 @@ def feature_format(dictionary: dict,
     # second branch is for compatibility on final project.
 
     # if the sorts keys are an instance of str, ie
-    if isinstance(object=sort_keys,
+    if isinstance(object=sort_keys, # TODO : object/classinfo may break function
                   classinfo=str):
         import pickle
         keys = pickle.load(open(sort_keys, "rb"))

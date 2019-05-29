@@ -23,6 +23,9 @@ df = pd.DataFrame.from_dict(data_dict, orient='index')
 # %% Kitchen Sink attempt
 train = df
 y_train = train['poi']  # The target variable
-train.pop('poi')
-
-modelFit = LogisticRegression().fit(train, y_train)
+poi_ser = train.pop('poi')
+try:
+    modelFit = LogisticRegression().fit(train, y_train)
+except ValueError as e:
+    print(e)
+    pd.concat(train, poi_ser)
