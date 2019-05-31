@@ -15,8 +15,8 @@ True POI's: Individuals that were found guilty
 
 ### poi_id.py
 
-Starter code for the POI identifier, you will write your analysis here.
-You will also submit a version of this file for your evaluator to verify your algorithm and results. 
+Starter code for the POI identifier, I will write my analysis here.
+I will also submit a version of this file for my evaluator to verify my algorithm and results. 
 
 ### final_project_dataset.pkl
 
@@ -24,17 +24,21 @@ The dataset for the project, more details below.
 
 ### tester.py
 
-When you turn in your analysis for evaluation by Udacity,
-you will submit the algorithm, dataset and list of features that you use (these are created automatically in poi_id.py).
-The evaluator will then use this code to test your result,
-to make sure we see performance that’s similar to what you report.
+When I turn in my analysis for evaluation by Udacity,
+I will submit the algorithm, dataset, and a list of features that I used (these are created automatically in poi_id.py).
+The evaluator will then use this code to:
+
+* test your result
+* make sure performance is similar to my report.
+
 You don’t need to do anything with this code,
 but we provide it for transparency and for your reference. 
 
 ### Directory: 'emails_by_address'
 
-this directory contains many text files,
-each of which contains all the messages to or from a particular email address.
+* Contains Enron Email data
+* **OPTIONAL** to use for creation of additional features
+* Each folder contains all the messages to or from a particular email address.
 It is for your reference, if you want to create more advanced features based on the details of the emails dataset.
 You do not need to process the e-mail corpus in order to complete the project
 

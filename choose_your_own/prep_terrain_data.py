@@ -2,9 +2,17 @@
 import random
 
 
-def makeTerrainData(n_points=1000):
-    ###############################################################################
-    # make the toy dataset
+def make_terrain_data(n_points=1000):
+    """Generate a terrain dataset
+
+    Parameters
+    ----------
+    n_points: int
+
+    Returns
+    -------
+
+    """
     random.seed(42)
     grade = [random.random() for ii in range(0, n_points)]
     bumpy = [random.random() for ii in range(0, n_points)]
