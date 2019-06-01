@@ -79,8 +79,7 @@ def feature_format(dictionary: dict,
     # second branch is for compatibility on final project.
 
     # if the sorts keys are an instance of str, ie
-    if isinstance(object=sort_keys, # TODO : object/classinfo may break function
-                  classinfo=str):
+    if isinstance(sort_keys, str):
         import pickle
         keys = pickle.load(open(sort_keys, "rb"))
     elif sort_keys:
